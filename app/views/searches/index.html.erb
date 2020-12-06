@@ -1,0 +1,50 @@
+<div class="container">
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href='/'>Search Information</a>
+    <%= form_tag searches_path, method: 'get', class: 'form-inline', role: 'searches' do %>
+      <%= text_field_tag :title, params[:title], placeholder: "By Title", class: "form-control mr-sm-2" %>
+      <%= text_field_tag :year, params[:year], placeholder: "By Year", class: "form-control mr-sm-2" %>
+      <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
+    <% end %>
+</nav>
+  <% if flash %>
+    <% flash.each do |key, value| %>
+      <div role="alert" class="<%= flash_class(key) %>">
+        <%= value %>
+      </div>
+    <% end %>
+  <% else %>
+    <% byebug %>
+   <% unless @result %>
+    <div class="alert alert-info" role="alert">
+      Search for your favourite Play! Nothing to show now.
+    </div>
+  <% else %>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Year</th>
+      <th scope="col">Poster</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @result.each_with_index do |res, i| %>
+      <tr>
+        <th scope="row"><%= i+1 %></th>
+        <td><%= res.title %></td>
+        <td><%= res.year %></td>
+        <td><%= image_tag res.poster, size: '80x80' if res["Poster"] != 'N/A' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+  <% end %>
+
+</div>
+
+
+
