@@ -1,5 +1,5 @@
 class Client
-  SERVICE1 = 'http://www.omdbapi.com/?apikey=4387c9d4'
+  SERVICE1 = "http://www.omdbapi.com/?apikey=#{ENV['API_KEY']}"
   # can add more Service as a fall back of Service1
 
   def self.call(query)

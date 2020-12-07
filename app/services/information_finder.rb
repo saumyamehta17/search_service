@@ -15,9 +15,9 @@ class InformationFinder
     begin
       ClientResponse.new(parsed_response).process
     rescue
-      return {success: false}
+      return { success: false }
     end
-    {success: true, data: searches(parsed_response["Search"])}
+    { success: true, data: searches(parsed_response["Search"]) }
   end
 
   private
@@ -29,7 +29,7 @@ class InformationFinder
   end
 
   def get_title
-    title ? "&s=#{title}*" : ''
+    title ? "&s=#{title}" : ''
   end
 
   def get_year

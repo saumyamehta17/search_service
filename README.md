@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Search Movie by their title and year
 
-Things you may want to cover:
+### How to run:
 
-* Ruby version
+* bundle install
 
-* System dependencies
+* rails s
 
-* Configuration
+### Things which are in mind but not implemented:
 
-* Database creation
+* Add optional SignIn/SignUp for Analytics Purpose
 
-* Database initialization
+* Save recent searches for autocomplete
 
-* How to run the test suite
+* Cache data to avoid api calls
 
-* Services (job queues, cache servers, search engines, etc.)
+* Use Fallback/Circuit Breaker if our primary external service fails
 
-* Deployment instructions
+* Use Pagination to show x number of records
 
-* ...
+* Timeout handling and retries for 1 or 2 times
+
+* Test Cases
+
+### Note:
+
+* Sometime API_KEY does not work, then update API_KEY in env file
